@@ -11,9 +11,8 @@ class PropertyController extends Controller
     {
         $properties = DB::select("SELECT * FROM properties");
 
-        var_dump($properties);
 
-       return view('property/index');
+       return view('property/index')->with('properties',$properties);
     }
 
     public function create()
