@@ -20,4 +20,7 @@ Route::get('/imoveis','PropertyController@index');
 Route::get('/imoveis/novo','PropertyController@create');
 Route::post ('/imoveis/store','PropertyController@store');
 
-Route::get('/imoveis/{id}', 'PropertyController@show');
+Route::get('/imoveis/{url}', 'PropertyController@show');
+
+Route::get('/imoveis/editar/{url}','PropertyController@edit');
+Route::put ('/imoveis/update/{url}','PropertyController@update');
