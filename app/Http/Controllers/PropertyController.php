@@ -24,9 +24,6 @@ class PropertyController extends Controller
         $property = Property::where('url',  $url)->get();
 
 
-        $property = Property::where('name', $name)->get();
-
-
         if (!empty($property)) {
             return view('property.show')->with('property', $property);
         } else {
@@ -82,8 +79,6 @@ class PropertyController extends Controller
         //$property = DB::select("SELECT * FROM properties WHERE url = ?", [$url]);
 
         $property = Property::where('url',  $url)->get();
-
-        $property = Property::where('name', $name)->get();
 
 
         if (!empty($property)) {
