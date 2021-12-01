@@ -1,6 +1,7 @@
 @extends('property.master')
 
 @section('content')
+
 <h1>Listagem de Produtos</h1>
 
 

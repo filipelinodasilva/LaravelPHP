@@ -13,7 +13,7 @@ class PropertyController extends Controller
         //$properties = DB::select("SELECT * FROM properties");
         $properties = Property::all();
 
-        return view('property/index')->with('properties', $properties);
+        return view('property.index')->with('properties', $properties);
 
     }
 
@@ -53,31 +53,21 @@ class PropertyController extends Controller
 
         $property = [
             'title' => $request->title,
-
             'url' =>  $propertySlug,
             'description' =>  $request->description,
-
-            'name' =>  $propertySlug,
-            'description' => $request->description,
-
             'rental_price' => $request->rental_price,
             'sale_price' => $request->sale_price
         ];
 
-
         Property::create($property);
 
-        return http_redirect()->action('PropertyController@index');
-
-
-
+        return redirect()->action('PropertyController@index');
     }
 
 
     public function edit($url)
     {
         //$property = DB::select("SELECT * FROM properties WHERE url = ?", [$url]);
-
         $property = Property::where('url',  $url)->get();
 
 
