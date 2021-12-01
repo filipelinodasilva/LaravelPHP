@@ -7,7 +7,8 @@
     <title>LaraDev: CRUD Imobi</title>
 </head>
 <body>
-    
+    <p><a href="<?= url('/imoveis'); ?>"> Listar todos os Imóveis </a> | <a href="<?= url('/imoveis/novo'); ?>"> Cadastrar novo Imóvel </a></p>
+
     @yield('content')
 
 </body>

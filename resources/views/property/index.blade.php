@@ -4,7 +4,6 @@
 
 <h1>Listagem de Produtos</h1>
 
-
 <?php
 
 if(!empty($properties)){
