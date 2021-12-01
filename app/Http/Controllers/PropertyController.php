@@ -4,12 +4,7 @@ namespace LaraDev\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-<<<<<<< HEAD
 use LaraDev\Property;
-
-=======
-use LaraDev\Providerty;
->>>>>>> 7e0e6b4c224cb840bbdcdb74cb8bb3d67340cbfe
 
 class PropertyController extends Controller
 {
@@ -17,23 +12,20 @@ class PropertyController extends Controller
     {
         //$properties = DB::select("SELECT * FROM properties");
         $properties = Property::all();
-<<<<<<< HEAD
 
         return view('property/index')->with('properties', $properties);
-=======
-        return view('property.index')->with('properties', $properties);
->>>>>>> 7e0e6b4c224cb840bbdcdb74cb8bb3d67340cbfe
+
     }
 
     public function show($url)
     {
         //$property = DB::select("SELECT * FROM properties WHERE url = ?", [$url]);
-<<<<<<< HEAD
+
         $property = Property::where('url',  $url)->get();
 
-=======
+
         $property = Property::where('name', $name)->get();
->>>>>>> 7e0e6b4c224cb840bbdcdb74cb8bb3d67340cbfe
+
 
         if (!empty($property)) {
             return view('property.show')->with('property', $property);
@@ -64,22 +56,22 @@ class PropertyController extends Controller
 
         $property = [
             'title' => $request->title,
-<<<<<<< HEAD
+
             'url' =>  $propertySlug,
             'description' =>  $request->description,
-=======
+
             'name' =>  $propertySlug,
             'description' => $request->description,
->>>>>>> 7e0e6b4c224cb840bbdcdb74cb8bb3d67340cbfe
+
             'rental_price' => $request->rental_price,
             'sale_price' => $request->sale_price
         ];
 
-<<<<<<< HEAD
+
         Property::create($property);
-=======
+
         return http_redirect()->action('PropertyController@index');
->>>>>>> 7e0e6b4c224cb840bbdcdb74cb8bb3d67340cbfe
+
 
 
     }
@@ -88,11 +80,11 @@ class PropertyController extends Controller
     public function edit($url)
     {
         //$property = DB::select("SELECT * FROM properties WHERE url = ?", [$url]);
-<<<<<<< HEAD
+
         $property = Property::where('url',  $url)->get();
-=======
+
         $property = Property::where('name', $name)->get();
->>>>>>> 7e0e6b4c224cb840bbdcdb74cb8bb3d67340cbfe
+
 
         if (!empty($property)) {
             return view('property.edit')->with('property', $property);
