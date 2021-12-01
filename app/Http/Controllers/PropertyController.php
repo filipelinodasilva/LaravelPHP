@@ -44,7 +44,7 @@ class PropertyController extends Controller
 //            $request->sale_price
 //        ];
 //
-//        DB::insert("INSERT INTO properties (title, url, description, rental_price, sale_price)
+//        //DB::insert("INSERT INTO properties (title, url, description, rental_price, sale_price)
 //                          VALUES (?, ?, ?, ?, ?)", $property);
 
         $property = [
