@@ -1,3 +1,7 @@
+@extends('property.master')
+
+@section('content')
+
 <h1>Formulário de Edição :: imóveis</h1>
 
 <?php
@@ -22,15 +26,17 @@ $property = $property[0];
     <br />
 
     <label for="rental_price">Valor de Locação</label>
-    <input type="text" name="rental_price" id="rental_price" value="<?= number_format($property->rental_price, 2, ',', '.'); ?>">
+    <input type="text" name="rental_price" id="rental_price" value="<?= $property->rental_price; ?>">
 
     <br />
 
     <label for="sale_price">Valor de Compra</label>
-    <input type="text" name="sale_price" id="sale_price" value="<?= number_format($property->sale_price, 2, ',', '.'); ?>">
+    <input type="text" name="sale_price" id="sale_price" value="<?= $property->sale_price; ?>">
 
     <br />
 
-    <button type="submit">Cadastrar Imóvel</button>
+    <button type="submit">Atualizar Imóvel</button>
 
 </form>
+
+@endsection

@@ -1,8 +1,10 @@
+@extends('property.master')
+
+@section('content')
+
 <h1>Formulário de Cadastro :: imóveis</h1>
 
 <form action="<?= url('/imoveis/store') ?>" method="post">
-
-// todo formulário deve ser adicionado esse script para gerar um token de acesso ao banco. <br/>
 
     <?= csrf_field(); ?>
 
@@ -29,3 +31,5 @@
     <button type="submit">Cadastrar Imóvel</button>
 
 </form>
+
+@endsection
