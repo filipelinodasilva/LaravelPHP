@@ -4,21 +4,24 @@ namespace LaraDev\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use LaraDev\Providerty;
 
 class PropertyController extends Controller
 {
     public function index()
     {
-        $properties = DB::select("SELECT * FROM properties");
-        return view('property/index')->with('properties', $properties);
+        //$properties = DB::select("SELECT * FROM properties");
+        $properties = Property::all();
+        return view('property.index')->with('properties', $properties);
     }
 
     public function show($url)
     {
-        $property = DB::select("SELECT * FROM properties WHERE url = ?", [$url]);
+        //$property = DB::select("SELECT * FROM properties WHERE url = ?", [$url]);
+        $property = Property::where('name', $name)->get();
 
         if (!empty($property)) {
-            return view('property/show')->with('property', $property);
+            return view('property.show')->with('property', $property);
         } else {
             return redirect()->action('PropertyController@index');
         }
@@ -26,35 +29,45 @@ class PropertyController extends Controller
 
     public function create()
     {
-        return view('property/create');
+        return view('property.create');
     }
 
     public function store(Request $request)
     {
         $propertySlug = $this->setName($request->title);
 
+//        $property = [
+//            $request->title,
+//            $propertySlug,
+//            $request->description,
+//            $request->rental_price,
+//            $request->sale_price
+//        ];
+//
+//        DB::insert("INSERT INTO properties (title, url, description, rental_price, sale_price)
+//                          VALUES (?, ?, ?, ?, ?)", $property);
+
         $property = [
-            $request->title,
-            $propertySlug,
-            $request->description,
-            $request->rental_price,
-            $request->sale_price
+            'title' => $request->title,
+            'name' =>  $propertySlug,
+            'description' => $request->description,
+            'rental_price' => $request->rental_price,
+            'sale_price' => $request->sale_price
         ];
 
-        DB::insert("INSERT INTO properties (title, url, description, rental_price, sale_price)
-                          VALUES (?, ?, ?, ?, ?)", $property);
+        return http_redirect()->action('PropertyController@index');
 
-        return redirect()->action('PropertyController@index');
 
     }
 
     #####################################################
     public function edit($url)
     {
-        $property = DB::select("SELECT * FROM properties WHERE url = ?", [$url]);
+        //$property = DB::select("SELECT * FROM properties WHERE url = ?", [$url]);
+        $property = Property::where('name', $name)->get();
 
         if (!empty($property)) {
-            return view('property/edit')->with('property', $property);
+            return view('property.edit')->with('property', $property);
         } else {
             return redirect()->action('PropertyController@index');
         }
