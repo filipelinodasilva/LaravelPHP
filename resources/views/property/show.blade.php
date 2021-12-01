@@ -7,10 +7,10 @@
 
 <?php
 
-if(!empty($property)){
+if (!empty($property)) {
 
-    foreach($property as $prop){
-        ?>
+    foreach ($property as $prop) {
+?>
 
         <h2>Título do Imóvel: <?= $prop->title; ?> </h2>
 
@@ -20,7 +20,7 @@ if(!empty($property)){
 
         <p>Valor de Venda: R$ <?= number_format($prop->sale_price, 2, ',', '.'); ?> </p>
 
-        <?php
+<?php
 
     }
 }

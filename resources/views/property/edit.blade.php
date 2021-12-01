@@ -10,7 +10,7 @@ $property = $property[0];
 
 <form action="<?= url('/imoveis/update', ['id' => $property->id]); ?>" method="post">
 
-    // todo formulário deve ser adicionado esse script para gerar um token de acesso ao banco. <br/>
+    // todo formulário deve ser adicionado esse script para gerar um token de acesso ao banco. <br />
 
     <?= csrf_field(); ?>
     <?= method_field('PUT'); ?>
