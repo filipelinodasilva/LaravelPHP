@@ -14,7 +14,6 @@ class PropertyController extends Controller
         $properties = Property::all();
 
         return view('property.index')->with('properties', $properties);
-
     }
 
     public function show($url)
@@ -40,16 +39,16 @@ class PropertyController extends Controller
     {
         $propertySlug = $this->setName($request->title);
 
-//        $property = [
-//            $request->title,
-//            $propertySlug,
-//            $request->description,
-//            $request->rental_price,
-//            $request->sale_price
-//        ];
-//
-//        //DB::insert("INSERT INTO properties (title, url, description, rental_price, sale_price)
-//                          VALUES (?, ?, ?, ?, ?)", $property);
+        //        $property = [
+        //            $request->title,
+        //            $propertySlug,
+        //            $request->description,
+        //            $request->rental_price,
+        //            $request->sale_price
+        //        ];
+        //
+        //        //DB::insert("INSERT INTO properties (title, url, description, rental_price, sale_price)
+        //                          VALUES (?, ?, ?, ?, ?)", $property);
 
         $property = [
             'title' => $request->title,
@@ -83,17 +82,17 @@ class PropertyController extends Controller
     {
         $propertySlug = $this->setName($request->title);
 
-//        $property = [
-//            $request->title,
-//            $propertySlug,
-//            $request->description,
-//            $request->rental_price,
-//            $request->sale_price,
-//            $id
-//        ];
-//
-//        DB::update("UPDATE properties SET title = ?, url = ?, description = ?, rental_price = ?, sale_price = ? WHERE id = ? ",
-//            $property);
+        //        $property = [
+        //            $request->title,
+        //            $propertySlug,
+        //            $request->description,
+        //            $request->rental_price,
+        //            $request->sale_price,
+        //            $id
+        //        ];
+        //
+        //        DB::update("UPDATE properties SET title = ?, url = ?, description = ?, rental_price = ?, sale_price = ? WHERE id = ? ",
+        //            $property);
 
         $property = Property::find($id);
 
@@ -118,7 +117,6 @@ class PropertyController extends Controller
         }
 
         return redirect()->action('PropertyController@index');
-
     }
 
 

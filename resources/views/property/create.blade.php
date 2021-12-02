@@ -1,35 +1,38 @@
 @extends('property.master')
 
 @section('content')
+<div class="container my-4">
 
-<h1>Formulário de Cadastro :: imóveis</h1>
+    <h1>Formulário de Cadastro :: imóveis</h1>
 
-<form action="<?= url('/imoveis/store') ?>" method="post">
+    <form action="<?= url('/imoveis/store') ?>" method="post">
 
-    <?= csrf_field(); ?>
+        <?= csrf_field(); ?>
 
-    <label for="title">Título do imóvel</label>
-    <input type="text" name="title" id="title">
+        <div class="form-group">
+            <label for="title">Título do imóvel</label>
+            <input type="text" name="title" id="title" class="form-control">
+        </div>
 
-    <br />
+        <div class="form-group">
+            <label for="description">Descrição</label>
+            <textarea name="description" id="description" cols="30" rows="10" class="form-control"> </textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="rental_price">Valor de Locação</label>
+            <input type="text" name="rental_price" id="rental_price" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="sale_price">Valor de Compra</label>
+            <input type="text" name="sale_price" id="sale_price" class="form-control">
+        </div>
+        
 
-    <label for="description">Descrição</label>
-    <textarea name="description" id="description" cols="30" rows="10"> </textarea>
+        <button type="submit" class="btn btn-primary">Cadastrar Imóvel</button>
 
-    <br />
-
-    <label for="rental_price">Valor de Locação</label>
-    <input type="text" name="rental_price" id="rental_price">
-
-    <br />
-
-    <label for="sale_price">Valor de Compra</label>
-    <input type="text" name="sale_price" id="sale_price">
-
-    <br />
-
-    <button type="submit">Cadastrar Imóvel</button>
-
-</form>
+    </form>
+</div>
 
 @endsection
